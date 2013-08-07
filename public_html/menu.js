@@ -1,0 +1,15 @@
+document.write();
+// ヘッダ
+document.write('<div id="header">');
+document.write('<h1><a href="index.html">Test Work</a></h1>');
+document.write('</div>');
+
+// メインメニュー
+document.write('<div>');
+document.write('<ul id="menu">');
+document.write('<li id="menu"><a href="index.html">HOME</a></li>');
+document.write('<li id="menu"><a href="index.html">このサイトについて</a></li>');
+document.write('<li id="menu"><a href="http://raspibian.local/blog">blog</a></li>');
+document.write('</ul>');
+document.write('<br />');
+document.write('</div>');

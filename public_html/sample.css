@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+/*==============================
+  全般的なスタイル
+================================  */
+*{
+    margin: 0; 			/*全要素のマージン・パディングをリセット*/
+    padding: 0;			
+    line-height: 1.5;		/*全要素の行の高さを1.5倍にする*/
+    color:#333333;		/*文字色*/
+}
+
+body{
+    background-color:white;	/*ページ全体の背景色*/
+    text-align:center;		/*IE6以下でセンタリングするため*/
+    /*font-family:Verdana, Arial, "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;*/
+	font: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; none; 
+}
+
+div#pagebody{
+    width:1000px;
+    margin:0 auto;		/*内容全体をセンタリング*/
+    text-align:left;		/*テキストの配置を左揃えに*/
+    background-color:#ffffff;	/*内容全体の背景色*/
+}
+
+/*==============================
+ ヘッダ
+===============================*/
+div#header{
+    height:80px;
+    background-color:white;
+}
+
+h1{
+    padding:20px 0px 0px 30px;	/*見出し内容の位置調整*/
+}
+
+h1 a{text-decoration:none;}
+
+/* ===============================
+ メインメニュー
+ =================================*/
+ul#menu{
+    height:35px;
+    background-color:#888888;
+}
+
+li#menu{
+    float:left;		/*リスト項目を横に並べる*/
+    display:inline;		/*リスト項目をインライン表示にする*/
+    list-style-type:none;	/*リストマーカー無しにする*/
+    width:150;
+    /* margin-top:4px; */
+}
+
+ul#menu a{
+    display:block;		/*リンクをブロック表示にする*/
+    height:29px;
+    padding-top:6px;
+    text-align:center;
+    text-decoration:none;	/*リンクの下戦をなくす*/
+    color:#ffffff;
+}
+
+ul#menu li a:hover{
+    background-color:#999999;	/*リンクにマウスが乗ったら色をかえる*/
+}
+
+/* ==============================
+ 左メニュー
+ ================================*/
+div#lmenu{
+    width:160px;		/*幅の指定*/
+    display:inline;
+    margin-top:10px;
+    float:left;                 /*サブメニューのカラムを左に寄せる*/
+}
+
+div#lmenu_header{
+    height:26px;
+    padding:4px 0px 0px 0px;
+    backgroud-position:top;
+    background-color:#888888;
+    font-seize:90%;
+    font-weight:bold;
+    text-align:center;
+    color:white;
+}
+
+ul#lmenu_body{
+    padding-bottom:6px;
+    backgroud-position:bottom;
+    background-color:#888888;
+}
+
+ul#lmenu_body li{
+    font-size:90%:		/*文字サイズを90%*/
+    list-style-type:none;	/*リストマーカーを無しに*/
+    display:inline;		/*リスト項目をインライン表示にする*/
+}
+
+ul#lmenu_body li a{
+    display:block;		/*リンクをブロック表示にする*/
+    margin:0px 4px 0px 4px;	/*サブメニュー項目のマージン*/
+    padding:2px 0px 2px 20px;	/*サブメニュー項目のパディング*/
+    background-color:#dddddd;	/*サブメニュー項目の背景色*/
+    text-decoration:none;	/*リンクの下線を無くす*/
+}
+
+ul#lmenu_body li a:hover{
+    background-color:#ffffff;	/*リンクにマウスが乗ったら色をかえる*/
+}
+
+/* ==============================
+   コンテンツ
+ ================================*/
+div#content{
+    margin:0px 0px 0px 30px;
+    float:left;
+    width:700px;
+}
+
+div#news{
+    width:700;
+    margin-left:10px;
+    float:left;
+}
+
+/* 見出し・段落・水平線のスタイル指定 */
+h2{
+    font-size:120%;
+    margin-bottom:10px;
+    border-bottom:solid 1px #cccccc;
+    backgroud-position:left center;
+}
+
+h3{
+    font-size:100%;
+    margin-left:5px;
+    padding:0 0 0 10px;
+    border-left:solid 5px #cccccc
+}
+
+p{
+    font-size:90%;
+    margin:10px 0px 10px 10px;
+    text-indent:10px;
+}
+
+hr{
+    height:1px;
+    broder:solid 1px #cccccc;
+    margin-bottom:30px;
+}
