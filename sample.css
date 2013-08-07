@@ -127,9 +127,15 @@ div#news{
     float:left;
 }
 
+div#news{
+    width:700;
+    margin-left:10px;
+    float:left;
+}
+
 /* 見出し・段落・水平線のスタイル指定 */
 h2{
-    font-size:120%;
+    font-size:160%;
     margin-bottom:10px;
     border-bottom:solid 1px #cccccc;
     backgroud-position:left center;
