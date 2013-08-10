@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="EPICS" />
+    <meta description="Makefile"/>
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="sample.css" type="text/css" />
+    <title>Boysenberry Lab:make</title>
+  </head>
+  <body>
+    <div id="pagebody">
+
+      <!-- タイトル & メニュー -->
+      <script type="text/javascript" src="menu.js"></script>
+      
+      <!-- 左サブメニュー -->
+      <script type="text/javascript" src="submenu.js"></script>
+      
+      <!-- コンテンツ -->
+      <div id="content">
+	<div id="news">
+	  <a href="../../index.html">home</a> =>
+	  <a href="index.html">make</a> =>
+	  <a href="1_helloMake.html">Hello make</a>
+	  <br /> <br />
+	  
+	  <h2>Hello make</h2>
+	  <p>初めて書いたプログラムはHello Worldだという人は多いと思います。一方，makeでHello Worldを書いたことがないという人も多いのではないでしょうか？ここではmakeを書くために必要な基礎を示し，Hello makeを表示したいと思います。</p>
+	  <br />
+	  
+	  <h3>makeって何？</h3>
+	  <p>繰り返しになりますがmakeはコンパイルを自動化するツールです。というのが一般的な答えですが，要するに<b>何かから何かを作るときに使うと便利</b>なものっていうだけです。それがプログラムだとソースコードと実行ファイルに当たるという話です。<p/>
+	  <p>料理で行ったらレシピにあたるものだと考えていいと思っています。makeを書くとコンピュータが自動でプログラムを生成してくれるのです。</p>
+	  <br />
+	  
+	  <h3>makeのルール</h3>
+	  <p>makeではルールと呼ばれるものを書いて作業を自動化します。</p>
+	  <p>このルールというのは非常に単純です。
+	    <ul>
+	      <li>作成したいもの（完成品）</li>
+	      <li>作成するのに必要なもの（材料）</li>
+	      <li>作成手順</li>
+	    </ul>
+	    の3つを書くだけです。この完成品，材料にはそれぞれ呼び名がついていて
+	    <ul>
+	      <li>完成品：ターゲット</li>
+	      <li>材料：依存物またはコンポーネント</li>
+	    </ul>
+	    と呼ばれます。makeはこのルールが基本になります。
+	  </p>
+	  <br />
+	  
+	  <h3>makeの記述</h3>
+	  <p>makeのルールを覚えた所で実際にmakeの書き方を見ていきます。</p>
+	  <p>makeはmakeを実行した際のカレントディレクトリに存在するMakefileまたはmakefileからルールを読み込みます。そのため，makeはMakefileというファイルに記述します。別にmakefileに書き込んでもかまいません。ただ，Makefileに記述するほうが好まれるそうです。</p>
+	  <pre>
+	    <code>
+	      ターゲット: 依存物
+	      　　　　手順
+	    </code>
+	  </pre>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
