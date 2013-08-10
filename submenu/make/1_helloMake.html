@@ -8,11 +8,16 @@
     <title>Boysenberry Lab:make</title>
 
     <!-- syntaxhighlighter -->
-    <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/css/shCore.css" />
-    <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/css/shThemeDefault.css" />
-    <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/js/shCore.js"></script>
-    <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/js/shBrushBash.js"></script>
-    </script>
+    <!-- <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/styles/shCore.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/styles/shThemeDefault.css" /> -->
+    <!-- <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/scripts/shCore.js"></script> -->
+    <!-- <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/scripts/shBrushBash.js"></script> -->
+
+     <link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css" />
+    <link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeDefault.css" />
+    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
     
   </head>
   <body>
@@ -33,17 +38,73 @@
 	  <br /> <br />
 	  
 	  <h2>Hello make</h2>
-	  <p>初めて書いたプログラムはHello Worldだという人は多いと思います。ここではmakeの説明をあれこれする前にmakeを使ってHello makeを表示したいと思います。</p>
-	  <br />
+	  <p>初めて書いたプログラムはHello Worldだという人は多いと思います。ここではmakeの説明をあれこれする前にmakeを使ってHello makeと画面に表示したいと思います。</p>
 
-	  <h2>Makefileを書く</h2>
-	  Emacsでもviでも何でもいいので<b>Makefile</b>というファイルに以下の通り書いてください。
+	  <h3>Makefileを書く</h3>
+	  <p>Emacsでもviでも何でもいいので<b>Makefile</b>というファイルに以下の通り書いてください。注意してほしいのは<b>echoの前はTab</b>だということです。</p>
 
-	  <pre class="brush:bash">
+	  <pre class="brush:bash" title="Makefile">
 	    test1:
+	    	echo "test1:Hello make"
+	    
 	    test2:
-	  </pre>
+	    	echo "test2:Hello make"
+	    
+	    test3:
+	    	echo "test3:Hello make"</pre>
 	  
+	  <p>Makefileが書けたら下のように実行しましょう。Makefileを実行するにはカレントディレクトリをMakefileを書いたディレクトリにする必要があるので注意してください。</p>
+
+	  <pre class="brush:bash gutter:false">
+	    $ make
+	    echo "test1:Hello make"
+	    test1:Hello make
+	    $ make test1
+	    echo "test1:Hello make"
+	    test1:Hello make
+	    $ make test2
+	    echo "test2:Hello make"
+	    test2:Hello make
+	    $ make test3
+	    echo "test3:Hello make"
+	    test3:Hello make</pre>
+
+	  <p>makeのコマンドと出力される文字の関係が分かるでしょうか？覚えておきたいことは次の２つです。</p>
+
+	  <ul class="content">
+	    <li class="content">make hogeと入力するとMakefile中の<i>"hoge:"</i> 以下にあるコマンドが実行される</li>
+	    <li class="content">makeとだけ入力するとMakefile中で一番先頭に書かれた<i>"hoge:"</i>以下のコマンドが実行される</li>
+	  </ul>
+
+	  <h3>さらにMakefileを書く</h3>
+	  <p>先ほど書いたMakefileを以下のように修正してみましょう。</p>
+
+	  <pre class="brush:bash highlight:[1]" title="Makefile" >
+	    test1: test2 test3
+	    	echo "test1:Hello make"
+	    
+	    test2:
+	    	echo "test2:Hello make"
+	    
+	    test3:
+	    	echo "test3:Hello make"</pre>
+
+	  <p>そしてmakeを実行しましょう。実行した結果は以下のようになります。</p>
+
+	  <pre class="brush:bash gutter:false">
+	    $ make
+	    echo "test2:Hello make"
+	    test2:Hello make
+	    echo "test3:Hello make"
+	    test3:Hello make
+	    echo "test1:Hello make"
+	    test1:Hello make</pre>
+
+	  <p>test1:の横にtest2 test3と足したことで，test1のコマンドが実行される前にtest2，test3のコマンドが実行されたことがわかると思います。ここではなんとなくそうなんだと思ってください。</p>
+	  <br />
+	  
+	  <p>以上でHello makeを終わります。Makefileの中身とmakeコマンドの関係がわかれば十分です。本格的なことは次から説明していきます。</p>
+	  <hr />
 	</div>
       </div>
     </div>

@@ -142,14 +142,23 @@ h2{
 }
 
 h3{
-    font-size:140%;
+    font-size:160%;
+    margin-top:2em;
     margin-left:5px;
     padding:0 0 0 10px;
-    border-left:solid 5px #cccccc
+    border-left:solid 5px #cccccc;
+}
+
+h3.profile{
+    font-size:160%;
+    margin-top:1em;
+    margin-left:5px;
+    padding:0 0 0 10px;
+    border-left:solid 5px #cccccc;
 }
 
 p{
-    font-size:95%;
+    font-size:100%;
     margin:10px 0px 10px 10px;
     text-indent:10px;
 }
@@ -158,4 +167,14 @@ hr{
     height:1px;
     broder:solid 1px #cccccc;
     margin-bottom:30px;
+    margin-top:50px;
+}
+
+ul.content{
+    margin:20px 0 20px 4em;
+}
+
+li.content{
+    margin:0 0 4px 0;
+    line-height:120%;
 }
