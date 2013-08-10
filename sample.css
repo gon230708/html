@@ -157,6 +157,14 @@ h3.profile{
     border-left:solid 5px #cccccc;
 }
 
+h3.new{
+    font-size:130%;
+    margin-top:0;
+    margin-left:5px;
+    padding:0 0 0 10px;
+    border-left:solid 5px #cccccc;
+}
+
 p{
     font-size:100%;
     margin:10px 0px 10px 10px;
