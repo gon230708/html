@@ -182,6 +182,10 @@ ul.content{
     margin:20px 0 20px 4em;
 }
 
+ol.content{
+    margin:20px 0 20px 4em;
+}
+
 li.content{
     margin:0 0 4px 0;
     line-height:120%;

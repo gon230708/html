@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="EPICS" />
+    <meta description="Makefile"/>
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="sample.css" type="text/css" />
+    <title>Boysenberry Lab:make</title>
+
+    <!-- syntaxhighlighter -->
+    <!-- <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/styles/shCore.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" href="http://boysenberry.tk/syntaxhighlighter/styles/shThemeDefault.css" /> -->
+    <!-- <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/scripts/shCore.js"></script> -->
+    <!-- <script type="text/javascript" src="http://boysenberry.tk/syntaxhighlighter/scripts/shBrushBash.js"></script> -->
+
+     <link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css" />
+    <link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeDefault.css" />
+    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+    
+  </head>
+  <body>
+    <div id="pagebody">
+
+      <!-- タイトル & メニュー -->
+      <script type="text/javascript" src="menu.js"></script>
+      
+      <!-- 左サブメニュー -->
+      <script type="text/javascript" src="submenu.js"></script>
+      
+      <!-- コンテンツ -->
+      <div id="content">
+	<div id="news">
+	  <a href="../../index.html">home</a> =>
+	  <a href="index.html">make</a> =>
+	  <a href="2_makeRule.html">makeのルール</a>
+	  <br /> <br />
+
+	  <h2>makeのルール</h2>
+	  ここではmakeの記述の基礎となるルールについて見ていきます。
+
+	  <h3>ルールの記述</h3>
+	  <p>makeでコンパイルなどを自動化するには
+	  <ol class="content">
+	    <li class="content">何をつくるか（ターゲット）</li>
+	    <li class="content">何からつくるか（依存物，コンポーネント）</li>
+	    <li class="content">どのようにつくるか（手順，コマンド）</li>
+	  </ol>
+	  を明示しないといけません。ルールの記述方法は明確に定義されていて，必ず以下のように書きます。<b>手順の行頭には必ずタブを入れてください。</b>（下の表記でも一応入っています）</p>
+	  <pre class="brush:plain gutter:false" title="makeの記述方法">
+	  ターゲット: 依存物
+	  	手順
+	  </pre>
+
+	  <h3>簡単な例</h3>
+	  <p>ここからは簡単なC言語のプログラムを用いてmakeの動作を確認していきます。以下が使用するプログラムのソースファイルです。</p>
+	  <pre class="brush:c" title="main.c">
+	    #include "myprint.h"
+	    
+	    int main(void)
+	    {
+ 	    	myprint("Hello World\n");
+	    
+	    	return 0;
+	    }</pre>
+
+	  <pre class="brush:c" title="myprint.c">
+	    #include &lt;stdio.h&gt;
+
+	    void myprint(char *buff)
+	    {
+	    	printf("%s",buff);
+	    }</pre>
+
+	  <pre class="brush:c" title="myprint.h">
+	    void myprint(char *buff);</pre>
+
+	  <p>以上のソースから実行可能なプログラムファイルを作成するMakefileの例を以下に示します。</p>
+	  <pre class="brush:bash" title="Makefile">
+	    main: main.o myprint.o myprint.h
+	    	gcc -o main main.o myprint.o
+	    
+	    main.o: main.c
+	    	gcc -c main.c
+	    
+	    myprint.o: myprint.c
+	    	gcc -c myprint.c</pre>
+
+	  <p>それではmakeを実行しましょう。makeを実行した結果は以下の通りです。</p>
+
+	  <pre class="brush:bash gutter:false">
+	  $ make
+	  gcc -c main.c
+	  gcc -c myprint.c
+	  gcc -o main main.o myprint.o</pre>
+
+	  <p>makeを実行したあとにmainという実行可能なファイルが作成できたことが確認できるでしょうか。このプログラムを実行した結果は以下の通りです。</p>
+	  <pre class="brush:bash gutter:false">
+	    $ ls
+	    .         Makefile  main.c    myprint.c myprint.o
+	    ..        main      main.o    myprint.h
+	    $ ./main
+	    Hello World</pre>
+
+	  <p>makeによって作成されたファイルがきちんと動作していることが確認できると思います。以上がmakeを使った簡単なプログラム作成の例です。</p>
+	  
+	  <hr />
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
